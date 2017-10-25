@@ -1,5 +1,0 @@
-﻿Clenimar @ 7/3 16h40: começamos a correr atrás do tempo perdido, mas ta difícil por que a gente não sabe pra onde ir. botamos o bicho na tela e fizemos os movimentos. mas como fazer um movimento continuo? não entendemos os key.set_repeat e get_repeat. []s
-
-Rémy @ 9/3 23h40: Usando o loop principal (jogando), você pode ficar alterando a posição de qualquer coisa que esteja na tela, então é só você ficar alterando a posição do elemento que você quer que ande e a cada iteração ele irá mudar a posição.
-
-Clenimar @ 11/3 11h25: pronto. Movimento feito. Vamos pra implementação dos obstáculos (colisões, etc) pra tentar montar o cenário antes de sexta. []s
