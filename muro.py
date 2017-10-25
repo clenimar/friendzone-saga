@@ -5,7 +5,7 @@ from pygame.locals import *
 
 class Muro(object):
 	def __init__(self, x, y):
-		self.image = pygame.image.load('muro_dark_side.jpg').convert_alpha()
+		self.image = pygame.image.load('static/images/muro_dark_side.jpg').convert_alpha()
 		self.rect = self.image.get_rect()
 		self.rect.top, self.rect.left = y, x
 		self.x = x
