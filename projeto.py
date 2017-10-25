@@ -10,7 +10,7 @@ from pygame.locals import *
 from mapa import *
 
 def caixa_de_texto(screen, message, (x, y)):
-    fontobject=pygame.font.Font('8-BIT WONDER.ttf', 16)
+    fontobject=pygame.font.Font('static/fonts/8-BIT WONDER.ttf', 16)
     if len(message) != 0:
         screen.blit(fontobject.render(message, 1, (255, 0, 0)),(x,y))
 	pygame.display.flip()
@@ -27,13 +27,13 @@ RESOLUCAO = (640,540)
 FPS = 30
 
 tela = pygame.display.set_mode(RESOLUCAO)
-fundo = pygame.image.load("background.png")
+fundo = pygame.image.load("static/images/background.png")
 tela.blit(fundo, (0,0))
 clock = pygame.time.Clock()
 pygame.display.set_caption("FRIENDZONE SAGA")
 
-VIDA_RES = {1:'life_1.png', 2:'life_2.png', 3:'life_3.png',0:'blank.png'}
-PERSONAGEM_RES = {1: 'm_m.png', 2: 'i_m.png', 3: 'g_m.png', 4: 'u_f.png', 5: 'x_f.png', 6: 'o_f.png'}
+VIDA_RES = {1:'static/images/life_1.png', 2:'static/images/life_2.png', 3:'static/images/life_3.png',0:'static/images/blank.png'}
+PERSONAGEM_RES = {1: 'static/images/m_m.png', 2: 'static/images/i_m.png', 3: 'static/images/g_m.png', 4: 'static/images/u_f.png', 5: 'static/images/x_f.png', 6: 'static/images/o_f.png'}
 
 def inicializar(nivel):
 	global inimigos
@@ -61,7 +61,7 @@ def inicializar(nivel):
 
 menu_inicio = True
 while menu_inicio:
-	carregaImagem('MENU.png', (0,0))
+	carregaImagem('static/images/MENU.png', (0,0))
 	pygame.display.update()
 	tecla = pygame.key.get_pressed()
 	if tecla[K_s]:
@@ -79,35 +79,35 @@ def selecionaPers():
 	seleciona_personagem = True
 	espera = False
 	while seleciona_personagem:
-		carregaImagem('seleciona_pers.png', (215,90))
+		carregaImagem('static/images/seleciona_pers.png', (215,90))
 		pygame.display.update()
 		tecla = pygame.key.get_pressed()
 		if tecla[K_m]:
-			imagem_heroi = 'm_m.png'
+			imagem_heroi = 'static/images/m_m.png'
 			espera = True
 			sexo_per = 'm'
 		elif tecla[K_i]:
-			imagem_heroi = 'i_m.png'
+			imagem_heroi = 'static/images/i_m.png'
 			espera = True
 			sexo_per = 'm'
 		elif tecla[K_g]:
-			imagem_heroi = 'g_m.png'
+			imagem_heroi = 'static/images/g_m.png'
 			espera = True
 			sexo_per = 'm'
 		elif tecla[K_u]:
-			imagem_heroi = 'u_f.png'
+			imagem_heroi = 'static/images/u_f.png'
 			espera = True
 			sexo_per = 'f'
 		elif tecla[K_x]:
-			imagem_heroi = 'x_f.png'
+			imagem_heroi = 'static/images/x_f.png'
 			espera = True
 			sexo_per = 'f'
 		elif tecla[K_o]:
-			imagem_heroi = 'o_f.png'
+			imagem_heroi = 'static/images/o_f.png'
 			espera = True
 			sexo_per = 'f'
 		if espera:
-			carregaImagem('w_cont.png', (130,200))
+			carregaImagem('static/images/w_cont.png', (130,200))
 			if tecla[K_w]:
 				seleciona_personagem = False
 		for evento in pygame.event.get():
@@ -121,31 +121,31 @@ def selecionaAmor(sexo_per):
 	while seleciona_amor:
 		tecla = pygame.key.get_pressed()
 		if sexo_per == 'm':
-			carregaImagem('seleciona_amor_f.png', (204,250))
+			carregaImagem('static/images/seleciona_amor_f.png', (204,250))
 			pygame.display.update()
 			if tecla[K_a]:
-				imagem_garota = 'u_f.png'
+				imagem_garota = 'static/images/u_f.png'
 				espera = True
 			elif tecla[K_b]:
-				imagem_garota = 'x_f.png'
+				imagem_garota = 'static/images/x_f.png'
 				espera = True
 			elif tecla[K_c]:
-				imagem_garota = 'o_f.png'
+				imagem_garota = 'static/images/o_f.png'
 				espera = True
 		else:
-			carregaImagem('seleciona_amor_m.png', (204,250))
+			carregaImagem('static/images/seleciona_amor_m.png', (204,250))
 			pygame.display.update()
 			if tecla[K_a]:
-				imagem_garota = 'm_m.png'
+				imagem_garota = 'static/images/m_m.png'
 				espera = True
 			elif tecla[K_b]:
-				imagem_garota = 'i_m.png'
+				imagem_garota = 'static/images/i_m.png'
 				espera = True
 			elif tecla[K_c]:
-				imagem_garota = 'g_m.png'
+				imagem_garota = 'static/images/g_m.png'
 				espera = True
 		if espera:
-			carregaImagem('w_cont.png', (130,360))
+			carregaImagem('static/images/w_cont.png', (130,360))
 			if tecla[K_w]:
 				seleciona_amor = False
 		for evento in pygame.event.get():
@@ -156,11 +156,11 @@ def selecionaInimigo(sexo_per):
 	global INIMIGO_RES
 	global INIMIGO_INTRO
 	if sexo_per == 'm':
-		INIMIGO_INTRO = {1: '1_inimigo_1_pre.png', 2: '1_inimigo_2_pre.png', 3: '1_boss_pre.png'}
-		INIMIGO_RES = {1: '1_inimigo_1.png', 2: '1_inimigo_2.png', 3: '1_boss.png'}
+		INIMIGO_INTRO = {1: 'static/images/1_inimigo_1_pre.png', 2: 'static/images/1_inimigo_2_pre.png', 3: 'static/images/1_boss_pre.png'}
+		INIMIGO_RES = {1: 'static/images/1_inimigo_1.png', 2: 'static/images/1_inimigo_2.png', 3: 'static/images/1_boss.png'}
 	else:
-		INIMIGO_RES = {1: '2_inimigo_1.png', 2: '2_inimigo_2.png', 3: '2_boss.png'}
-		INIMIGO_INTRO = {1: '2_inimigo_1_pre.png', 2: '2_inimigo_2_pre.png', 3: '2_boss_pre.png'}		
+		INIMIGO_RES = {1: 'static/images/2_inimigo_1.png', 2: 'static/images/2_inimigo_2.png', 3: 'static/images/2_boss.png'}
+		INIMIGO_INTRO = {1: 'static/images/2_inimigo_1_pre.png', 2: 'static/images/2_inimigo_2_pre.png', 3: 'static/images/2_boss_pre.png'}		
 
 def carregaIntro(nivel):
 	tela.blit(fundo, (0,0))
@@ -192,7 +192,7 @@ for i in range(len(inimigos_pos)):
 
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load('smk_battle.mid')
+pygame.mixer.music.load('static/sounds/smk_battle.mid')
 pygame.mixer.music.play(2)
 
 # JOGO:
@@ -217,13 +217,13 @@ while jogando:
 	
 	if vidas == 0:
 		gameOver = True
-		pygame.mixer.music.load('smw_gameover.mid')
+		pygame.mixer.music.load('static/sounds/smw_gameover.mid')
 		pygame.mixer.music.play(2)
 
 	carregaImagem('%s' % VIDA_RES[vidas], (32, 480))
 	
 	while gameOver:
-		carregaImagem('gameover.png', (180,150))
+		carregaImagem('static/images/gameover.png', (180,150))
 		pygame.display.update()
 		for evento in pygame.event.get():
 			if evento.type == pygame.QUIT or pygame.key.get_pressed()[K_ESCAPE]:
@@ -234,11 +234,11 @@ while jogando:
 				nivel = 1
 				inicializar(nivel)
 				pygame.mixer.init()
-				pygame.mixer.music.load('smk_battle.mid')
+				pygame.mixer.music.load('static/sounds/smk_battle.mid')
 				pygame.mixer.music.play(2)
 				vidas = 3
 	while jogoGanho:
-		carregaImagem('jogo_ganho.png', (0, 0))
+		carregaImagem('static/images/jogo_ganho.png', (0, 0))
 		pygame.display.update()
 		for evento in pygame.event.get():
 			if evento.type == pygame.QUIT or pygame.key.get_pressed()[K_ESCAPE]:
@@ -255,7 +255,7 @@ while jogando:
 				carregaIntro(nivel)
 				inicializar(nivel)
 			pygame.mixer.init()
-			pygame.mixer.music.load('t16.wav')
+			pygame.mixer.music.load('static/sounds/t16.wav')
 			pygame.mixer.music.play(1)
 		
 	mapa.draw(tela)
@@ -303,7 +303,7 @@ while jogando:
 		if mapa.item_ativo.has_key(4):
 			if mapa.item_ativo[4]:
 				apagaItem(4)
-				carregaImagem('item_chave.png', (508,480))
+				carregaImagem('static/images/item_chave.png', (508,480))
 				
 	if mapa.colisaoPorta(heroi.rect):
 		if nivel != 3:

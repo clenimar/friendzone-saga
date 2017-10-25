@@ -91,17 +91,17 @@ class Mapa(object):
 				if coluna == "o":
 					self.paredes.append(Muro(self.x, self.y))
 				elif coluna == "1":
-					self.itens[1] = Item(self.x,self.y, 'item_depressao.png')
+					self.itens[1] = Item(self.x,self.y, 'static/images/item_depressao.png')
 				elif coluna == "2":
-					self.itens[2] = Item(self.x,self.y, 'item_desespero.png')
+					self.itens[2] = Item(self.x,self.y, 'static/images/item_desespero.png')
 				elif coluna == "3":
-					self.itens[3] = Item(self.x,self.y, 'item_carencia.png')
+					self.itens[3] = Item(self.x,self.y, 'static/images/item_carencia.png')
 				elif coluna == "4":
-					self.itens[4] = Item(self.x,self.y, 'chave.png')
+					self.itens[4] = Item(self.x,self.y, 'static/images/chave.png')
 				elif coluna == "5":
-					self.itens[5].append(Item(self.x,self.y, 'cadeado.png'))
+					self.itens[5].append(Item(self.x,self.y, 'static/images/cadeado.png'))
 				elif coluna == "6":
-					self.itens[6] = Item(self.x,self.y, 'porta.png')
+					self.itens[6] = Item(self.x,self.y, 'static/images/porta.png')
 				self.x += 32
 			self.y += 24
 			self.x = 0

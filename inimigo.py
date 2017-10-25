@@ -6,7 +6,7 @@ from pygame.locals import *
 
 class Inimigo(object):
 	def __init__(self, mapa, posicao):
-		self.imagem = pygame.image.load('inimigo.png')
+		self.imagem = pygame.image.load('static/images/inimigo.png')
 		self.x, self.y = posicao
 		self.mapa = mapa
 		self.rect = self.imagem.get_rect()
