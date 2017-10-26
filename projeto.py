@@ -2,12 +2,12 @@
 # projeto
 
 import pygame, pygame.font, sys
-from personagem import *
-from garota import *
-from inimigo import *
-from item import *
+from models.personagem import *
+from models.garota import *
+from models.inimigo import *
+from models.item import *
 from pygame.locals import *
-from mapa import *
+from models.mapa import *
 
 def caixa_de_texto(screen, message, (x, y)):
     fontobject=pygame.font.Font('static/fonts/8-BIT WONDER.ttf', 16)
